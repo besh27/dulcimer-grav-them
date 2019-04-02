@@ -1,4 +1,8 @@
-Creating a Backup
+# dulcimer-grav-them
+------------------------
+## A GRAV CMS theme created for the Dulcimer Hymnal
+
+##Creating a Backup
 
 Backing up your project is nothing more than creating an archive of the ROOT of Grav. No Database, no complications.
 
@@ -9,7 +13,7 @@ $ bin/grav backup
 
 ------------------------
 
-Backing up and Uploading Themes
+## Backing up and Uploading Themes
 
 Backing up and uploading your themes is nothing more than navigating to user/themes/ and copying your current theme and renaming it with symanitic versioning (example theme_v1.0.0). Next, Open the renamed theme directory and find the php and yaml files that share the same name as your theme. Add the symantic version number to those files as well. After that, zip the entire theme directory folder. 
 
@@ -19,13 +23,13 @@ Next, navigate to the themes admin page by clicking the "Themes" button on the b
 
 -----------------------
 
-Activating /  Deactivating plugins
+## Activating /  Deactivating plugins
 
 Navigate to the Plugins page by clicking the navigation link on the left side of the admin panel. Find the plugin that you want to activate or deactivate and click the toggle button in the same row. Done. 
 
 -----------------------
 
-Add New Pages
+## Add New Pages
 
 Click the Add button at the top right corner of the admin panel. 
 
@@ -36,7 +40,7 @@ Last, click "Continue".
 
 -----------------------
 
-Edit a Page
+## Edit a Page
 
 Use markdown to add content to the page. 
 A great resource for markdown is https://daringfireball.net/projects/markdown/syntax. Check it out!
@@ -58,8 +62,3 @@ Example:
 More additions to the document will come in the future.
 
 - contact beshdevelopment@gmail.com for any questions.
-
-
-
-
-
