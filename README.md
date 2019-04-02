@@ -1,4 +1,4 @@
-# dulcimer-grav-them
+# dulcimer-grav-theme
 ### A GRAV CMS theme created for the Dulcimer Hymnal
 
 
