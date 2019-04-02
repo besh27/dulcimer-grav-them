@@ -1,0 +1,35 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+	<div class="row">
+		<caption class="col-md-12">
+			<div class="mobile-contents page-toc sidebar-contents">
+				<h4>Table of Contents</h4>
+				{{ toc(content) }}
+			</div>
+		</caption>
+	</div>
+	<div class="row">
+		<aside class="col-md-3">
+		    <div class="sidebar affix">
+	        {% include 'partials/sidebar.html.twig' with {'blog':page} %}
+	        </div>
+	    </aside>
+	    <div class="col-md-6 default-content">
+            {{ page.content }}
+            {% include 'partials/defaultbottom.html.twig' with {'blog':page} %}
+	    </div>
+		<div class="col-md-3">
+			<div class="page-toc sidebar-contents affix">
+				<p>Purchase a PDF Version for your computer, ipad, tablet, nook or kindle!</p>
+
+				<p>Each Hymnal Includes 50 Hymns for Only $15!!!</p>
+
+				<p>We offer Low Shipping Options! Buy one hymnal, get the second's shipping free! Buy three or more (up to ten!) hymnals, the shipping is only $11!</p>
+
+				<p>Pay With Money Order Mail all orders to my contact address</p>
+			</div>
+		</div>
+
+    </div>
+{% endblock %}

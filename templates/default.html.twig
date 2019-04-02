@@ -1,0 +1,43 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+	<div class="row">
+		<caption class="col-md-12">
+			<div class="mobile-contents page-toc sidebar-contents">
+				<h4>Table of Contents</h4>
+				{{ toc(content) }}
+			</div>
+		</caption>
+	</div>
+	<div class="row">
+		<aside class="col-md-3">
+		    <div class="sidebar affix">
+	        {% include 'partials/sidebar.html.twig' with {'blog':page} %}
+	        </div>
+	    </aside>
+	    <div class="col-md-6 default-content">
+            {{ page.content }}
+            {% include 'partials/defaultbottom.html.twig' with {'blog':page} %}
+
+	    </div>
+		<div class="col-md-3">
+			{% if config.get('plugins.page-toc.active') or attribute(page.header, 'page-toc').active %}
+			<div class="page-toc sidebar-contents affix">
+				<h4>Table of Contents</h4>
+                {{ toc(content) }}
+
+			{% endif %}
+
+
+                {{ page.media('docx').url }}
+			{% for item in page.content.media %}
+				<a href="{{ image.url(true) }}">
+					<img src="{{ image.url }}" alt="{{ item.alt }}" title="{{ item.title }}" />
+				</a>
+			{% endfor %}
+			</div>
+
+		</div>
+
+    </div>
+{% endblock %}

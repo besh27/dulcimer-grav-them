@@ -1,0 +1,57 @@
+{% extends 'partials/base.html.twig' %}
+{% set homecol1 = page.find('/home/home-column-1') %}
+{% set homecol2 = page.find('/home/home-column-2') %}
+{% set homecol3 = page.find('/home/home-column-3') %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        #breadcrumbs{
+            display:none;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="row hero-page hero-landing-group">
+        <div class="content-wrapper blog-content-list grid pure-g col-md-6 hero-row-item">
+           
+                <h1>Recent Updates</h1>
+            
+            <div id="listing" class="block pure-u-2-3 h-feed">
+                {% for child in collection %}
+                    {% include 'partials/blog_item.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
+                {% endfor %}
+
+                {% if config.plugins.pagination.enabled and collection.params.pagination %}
+                    {% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
+                {% endif %}
+                <div class="hero-row-content">
+                 {{ homecol1.content }}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 hero-row-item">
+           <row>
+                <div class="col-md-6 hero-row-item">
+                    <div class="img-place-holder bd-image"><a class="hero-book-links" href="/volume-1" ><img src="{{ homecol2.media['order-dulcimer-hymnal-volume-1.jpg'].url }}" /></a></div>
+                    <a class="hero-book-links" href="/hymnals/volume-1" >Learn More About Volume 1</a>
+                </div>
+                <div class="col-md-6 hero-row-item">
+                     <div class="img-place-holder bd-image"><a class="hero-book-links" href="/volume-2" ><img src="{{ homecol2.media['order-dulcimer-hymnal-volume-2.jpg'].url }}" /></a></div>
+                     <a class="hero-book-links" href="/hymnals/volume-2" >Learn More About Volume 2</a>
+                </div>
+           </row>                         
+            <div class="hero-row-content">
+            {{ homecol2.content }}
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="row">
+            <div class="col-md-12">
+                 {{ page.content }}
+            </div>
+    </div>
+{% endblock %}

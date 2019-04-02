@@ -1,0 +1,23 @@
+
+<nav class="nav" role="navigation" class="navigation">
+    <div class="">
+        <ul class="parent_page">
+            {% for page in pages.children %}
+                {% if page.visible %}
+                    {% set current_page = (page.active or ul.child_page) ? 'active' : '' %}
+                    <li class="{{ current_page }}"><h4><a href="{{ page.url }}">{{ page.menu }}</a></h4></li>
+                    {% if page.children %}
+                        <ul class="child_page">
+                            {% for child in page.children %}
+                                {% if child.visible %}
+                                    {% set current_page = (page.active or ul.child_page) ? 'active' : '' %}
+                                    <li class="{{ current_page }}"><a href="{{ child.url }}">{{ child.menu }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</nav>

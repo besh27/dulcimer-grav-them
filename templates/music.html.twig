@@ -1,0 +1,16 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+	<div class="row">
+		<aside class="col-md-3">
+		    <div class="sidebar affix">
+	        {% include 'partials/sidebar.html.twig' with {'blog':page} %}
+	        </div>
+	    </aside>
+	    <div class="col-md-9 default-content">
+            {{ page.content }}
+            {% include 'partials/defaultbottom.html.twig' with {'blog':page} %}
+
+	    </div>
+    </div>
+{% endblock %}

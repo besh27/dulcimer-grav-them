@@ -1,0 +1,120 @@
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+<!DOCTYPE html>
+<html lang="{{ grav.language.getLanguage ?: 'en' }}">
+<head>
+{% block head %}
+    <meta charset="utf-8" />
+    <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+    {% include 'partials/metadata.html.twig' %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/png" href="{{ url('theme://images/favicon.png') }}" />
+    <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png') }}" />
+    <link rel="canonical" href="{{ page.url(true, true) }}" />
+
+    {% block stylesheets %}
+        {% do assets.addCss('theme://css/pure-0.5.0/grids-min.css', 103) %}
+        {% do assets.addCss('theme://css-compiled/nucleus.css', 102) %}
+        {% do assets.addCss('theme://css-compiled/template.css', 101) %}
+        {% do assets.addCss('theme://css/custom.css', 100) %}
+        {% do assets.addCss('theme://css/font-awesome.min.css', 100) %}
+        {% do assets.addCss('theme://css/slidebars.min.css') %}
+        {% do assets.addCss('theme://css/bootstrap.min.css') %}
+        {% do assets.addCss('theme://css/dmd.css') %}
+
+        {% if browser.getBrowser == 'msie' and browser.getVersion == 10 %}
+            {% do assets.addCss('theme://css/nucleus-ie10.css') %}
+        {% endif %}
+        {% if browser.getBrowser == 'msie' and browser.getVersion >= 8 and browser.getVersion <= 9 %}
+            {% do assets.addCss('theme://css/nucleus-ie9.css') %}
+            {% do assets.addJs('theme://js/html5shiv-printshiv.min.js') %}
+        {% endif %}
+    {% endblock %}
+    {{ assets.css() }}
+
+    {% block javascripts %}
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+        {% do assets.addJs('jquery', 101) %}
+        {% do assets.addJs('theme://js/modernizr.custom.71422.js', 100) %}
+        {% do assets.addJs('theme://js/slidebars.min.js') %}
+        {% do assets.addJs('theme://js/bootstrap.js') %}
+        {% do assets.addJs('theme://js/dmd.js') %}
+
+    {% endblock %}
+    {{ assets.js() }}
+
+{% endblock head %}
+</head>
+
+<body id="top" class="{{ page.header.body_classes }}">
+    <div id="sb-site">
+        {% block header %}
+        <header id="header" class="affix">
+            <div class="container">
+                <div class="row">
+                    <div id="navbar" class="header-el">
+                        <span class="panel-activation sb-toggle-left navbar-left menu-btn fa fa-bars"></span>
+                    </div>
+                    <div class="header-el">
+                        <a href="{{ base_url == '' ? '/' : base_url }}">
+                            <img id="site-logo" src="/user/pages/images/dh-logo.png">
+                        </a>
+                    </div>
+                   <div class="header-search-box">
+                        {% include 'partials/simplesearch_searchbox.html.twig' %}
+                    </div>
+                </div>
+            </div>
+            <div id="header-hr" class="affix">
+                <div class="container">
+                    <div class="col-md-12">
+                        {% if config.plugins.breadcrumbs.enabled %}
+                            {% include 'partials/breadcrumbs.html.twig' %}
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+
+        </header>
+
+        {% endblock %}
+
+        <div id="header-buffer"></div>
+        {% block showcase %}{% endblock %}
+
+        {% block body %}
+        <section id="body" class="{{ class }}">
+            <div class="container">
+            {% block content %}{% endblock %}
+            </div>
+        </section>
+        {% endblock %}
+
+        {% block footer %}
+
+        {% endblock %}
+    </div>
+    <div class="sb-slidebar sb-left sb-width-thin">
+        <div id="panel">
+            {% include 'partials/navigation.html.twig' %}
+        </div>
+    </div>
+    <div class="footer-pad"></div>
+    <div class="footer">
+        {% include 'partials/footer.html.twig' %}
+    </div>
+    {% block bottom %}
+        {{ assets.js('bottom') }}
+        <script>
+        $(function () {
+            $(document).ready(function() {
+              $.slidebars({
+                hideControlClasses: true,
+                scrollLock: true
+              });
+            });
+        });
+        </script>
+    {% endblock %}
+</body>
+</html>

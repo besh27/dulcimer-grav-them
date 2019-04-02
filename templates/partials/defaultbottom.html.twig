@@ -1,0 +1,6 @@
+{% set footerContent = page.find('/misc-site-content/default-footer-content') %}
+
+<div class="default-content-footer">
+    {{ footerContent.content }}
+    <div class="date-updated">Last Updated: {{ page.date|date(config.system.pages.dateformat.short) }}</div>
+</div>
