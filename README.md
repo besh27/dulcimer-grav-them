@@ -1,5 +1,4 @@
 # dulcimer-grav-them
-------------------------
 ## A GRAV CMS theme created for the Dulcimer Hymnal
 
 ##Creating a Backup
@@ -11,7 +10,6 @@ Of course you can simplify this even more by just using the Grav CLI. Supposing 
 $ cd ~/workspace/portfolio
 $ bin/grav backup
 
-------------------------
 
 ## Backing up and Uploading Themes
 
@@ -21,13 +19,11 @@ Open a browser and navigate to the admin side of your grav site (example gravsit
 
 Next, navigate to the themes admin page by clicking the "Themes" button on the bottom left navigation button. Find the theme you previously uploaded and click to active it. That's it!
 
------------------------
 
 ## Activating /  Deactivating plugins
 
 Navigate to the Plugins page by clicking the navigation link on the left side of the admin panel. Find the plugin that you want to activate or deactivate and click the toggle button in the same row. Done. 
 
------------------------
 
 ## Add New Pages
 
@@ -38,7 +34,6 @@ Choose "Default" for the Page Template.
 Next, Click "Yes" for visible.
 Last, click "Continue".
 
------------------------
 
 ## Edit a Page
 
