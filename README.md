@@ -1,7 +1,8 @@
 # dulcimer-grav-them
-## A GRAV CMS theme created for the Dulcimer Hymnal
+### A GRAV CMS theme created for the Dulcimer Hymnal
 
-##Creating a Backup
+
+## Creating a Backup
 
 Backing up your project is nothing more than creating an archive of the ROOT of Grav. No Database, no complications.
 
